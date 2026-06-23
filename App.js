@@ -2,16 +2,24 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Image,TextInput,ScrollView } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 
-
-export default function App() {
-  return (
+import Banner from '.src/banner'
+import { FlatList } from 'react-native-web';
+export default function App() {}
+  return ()
     <ScrollView>
     <View style={styles.container}>
 
+    <Header></Header>
+    <Search></Search>
+    <Banner></Banner>
+    
+    <View style ={{width:'90%'}}>
 
-
-
-
+      <FlatList>
+        horizontal= {true}
+        data={Filmes}
+        keyextractor={(item)=> item.id}
+      </>
       {/* INICIO DA HEADER */}
 
 
@@ -51,19 +59,19 @@ export default function App() {
 
       <Image
         style={styles.imagem}
-        source={require('./assets/Batman Cavaleiro das Trevas.webp')}
+        source={require('./assets/Batman vs Superman.jpg')}
       />
-      <text style={styles.tituloFilme}>Batman</text>
+      <Text style={styles.tituloFilme}>Batman</Text>
       <Image
         style={styles.imagem}
-        source={require('./assets/Batman Cavaleiro das Trevas.webp')}
+        source={require('./assets/Interrestelar.jpg')}
       />
-      <text style={styles.tituloFilme}>Batman</text>
+      <Text style={styles.tituloFilme}>Interestelar</Text>
       <Image
         style={styles.imagem}
-        source={require('./assets/Batman Cavaleiro das Trevas.webp')}
+        source={require('./assets/Ultimato.jpg')}
       />
-      <text style={styles.tituloFilme}>Batman</text>
+      <Text style={styles.tituloFilme}>Vingadores Ultimato</Text>
 
 
 
@@ -165,8 +173,10 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 3  
     
+  },
+  imagem: {
+   
   }
-
 });
 
 
